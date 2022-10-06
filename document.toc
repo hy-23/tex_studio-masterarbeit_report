@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Motivation}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Organization}{3}{}%
+\contentsline {section}{\numberline {2}Related Works}{3}{}%
+\contentsline {section}{\numberline {3}Materials and Methods}{3}{}%
+\contentsline {section}{\numberline {4}Results}{3}{}%
+\contentsline {subsection}{\numberline {4.1}Metrics}{3}{}%
+\contentsline {subsection}{\numberline {4.2}Quality Assessment}{3}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Qualitative Assessment}{3}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Quantitative Assessment}{3}{}%
+\contentsline {section}{\numberline {5}Discussion}{3}{}%
+\contentsline {section}{\numberline {6}Conclusion}{3}{}%

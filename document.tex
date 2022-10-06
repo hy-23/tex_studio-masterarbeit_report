@@ -1,0 +1,90 @@
+\documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This seciont would include all the required
+% packages.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% table of contents are in different lines.
+\usepackage[utf8]{inputenc}
+
+% code listing
+\usepackage{tcolorbox}
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+% page dimensions
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+% citations
+\usepackage{cite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% package end.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+	Masterarbeit \\
+	Robust Registration to a template brain  \\
+	for the Drosophila larva \large }
+
+\author{Harsha Yogeshappa}
+
+\begin{document}
+	\maketitle
+	\newpage
+	
+	\tableofcontents
+	\newpage
+	\section{Introduction}
+	In the field of medical imaging, image registration is an important application. In image registration, two images are spatially aligned in a common coordinate space so that the corresponding features and/or complementary information can be compared and examined. This is achieved by seeking an optimal mapping of the spatial transformation from one image to the other. Whether in research laboratories where organisms are studied by biologists to understand biological processes or in clinical applications, image registration is one of the most important steps in planning and monitoring changes over time. Therefore, it is important to make the image registration process robust and real time. 
+	
+	The classical method like \emph{elastix} Image Registration Toolkit is a parametric method and uses an iterative approach to find the optimal solution. The parameters are in a high dimensional space and the iterative approach makes the whole process time consuming. Since it is a parametric method, the registration accuracy depends on the optimal combination and parameterization of these parameters. This makes the method highly data dependent, i.e., parameters optimized for one data set may or may not work for another data set. It would be desirable to develop a closed-form solution that works for all data. However, the high dimensionality of the parameter space makes it difficult to find a closed-form solution \cite{Fu_2020}.
+	
+	In this work, image registration is made more robust and real-time by using deep learning techniques to accurately predict the deformation field not only for one dataset but also for other datasets in real-time. Our method is able to perform image registration in 3s on average, while the current state-of-the-art method performs registration in 7m. Moreover, this approach has the advantage that auxiliary information in the form of landmarks, segmentations, or the like can be inserted to assist the network in the learning process.	
+
+	\subsection{Motivation}
+	\subsection{Organization}
+	
+	\section{Related Works}
+	
+	\section{Materials and Methods}
+	
+	\section{Results}
+	\subsection{Metrics}
+	\subsection{Quality Assessment}
+	\subsubsection{Qualitative Assessment}
+	\subsubsection{Quantitative Assessment}
+	
+	\section{Discussion}
+	
+	\section{Conclusion}
+	
+	% bibiliography
+	\newpage
+	\bibliographystyle{ieeetr}
+	\bibliography{./references}
+\end{document}
