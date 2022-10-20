@@ -33,4 +33,19 @@ Grossman, L. (2010, April 09). High-speed video shows how flies change direction
 \bibitem{walter}
 Fly genetics and the methods we are using (n.d.). Retrieved October 20, 2022, from https://www.walter-lab.com/methods
 
+\bibitem{Voxelmorph}
+G. Balakrishnan, A. Zhao, M. R. Sabuncu, J. Guttag and A. V. Dalca, "VoxelMorph: A Learning Framework for Deformable Medical Image Registration," in IEEE Transactions on Medical Imaging, vol. 38, no. 8, pp. 1788-1800, Aug. 2019, doi: 10.1109/TMI.2019.2897538.
+
+\bibitem{deVos_2018}
+de Vos BD, Berendsen FF, Viergever MA, Sokooti H, Staring M, Išgum I. A deep learning framework for unsupervised affine and deformable image registration. Med Image Anal. 2019;52:128-143. doi:10.1016/j.media.2018.11.010
+
+\bibitem{Wu_2016}
+G. Wu, M. Kim, Q. Wang, B. C. Munsell and D. Shen, "Scalable High-Performance Image Registration Framework by Unsupervised Deep Feature Representations Learning," in IEEE Transactions on Biomedical Engineering, vol. 63, no. 7, pp. 1505-1516, July 2016, doi: 10.1109/TBME.2015.2496253.
+
+\bibitem{Yang_2017}
+Yang X, Kwitt R, Styner M, Niethammer M. Quicksilver: Fast predictive image registration - A deep learning approach. Neuroimage. 2017;158:378-396. doi:10.1016/j.neuroimage.2017.07.008
+
+\bibitem{Hessam_2017}
+Hessam Sokooti, Bob de Vos, Floris Berendsen, Boudewijn P. F. Lelieveldt, Ivana Išgum, and Marius Staring. 2017. Nonrigid Image Registration Using Multi-scale 3D Convolutional Neural Networks. In Medical Image Computing and Computer Assisted Intervention MICCAI 2017: 20th International Conference, Quebec City, QC, Canada, September 11-13, 2017, Proceedings, Part I. Springer-Verlag, Berlin, Heidelberg, 232–239. doi:10.1007/978-3-319-66182-7\textunderscore27
+
 \end{thebibliography}
