@@ -1,8 +1,36 @@
 \begin{thebibliography}{1}
 
 \bibitem{Fu_2020}
-Y.~Fu, Y.~Lei, T.~Wang, W.~J. Curran, T.~Liu, and X.~Yang, ``Deep learning in
-  medical image registration: a review,'' {\em Physics in Medicine
-  {\&}amp$\mathsemicolon$ Biology}, vol.~65, p.~20TR01, oct 2020.
+Fu Y, Lei Y, Wang T, Curran WJ, Liu T, Yang X. Deep learning in medical image registration: a review. Phys Med Biol. 2020;65(20):20TR01. Published 2020 Oct 22. doi:10.1088/1361-6560/ab843e
+
+\bibitem{Mu_2018}
+Muenzing SEA, Strauch M, Truman JW, Bühler K, Thum AS, Merhof D. larvalign: Aligning Gene Expression Patterns from the Larval Brain of Drosophila melanogaster. Neuroinformatics. 2018;16(1):65-80. doi:10.1007/s12021-017-9349-6
+
+\bibitem{Hecke_2008}
+Van Hecke W, Sijbers J, D'Agostino E, et al. On the construction of an inter-subject diffusion tensor magnetic resonance atlas of the healthy human brain. Neuroimage. 2008;43(1):69-80. doi:10.1016/j.neuroimage.2008.07.006
+
+\bibitem{Pelt_2013}
+van Pelt, R. (2013). Atlas generation using elastix. Eindhoven University of Technology. https://github.com/SuperElastix/elastix/wiki/Atlas-generation-using-elastix
+
+\bibitem{cherry_biotech}
+Drosophila life cycle and Fly Anatomy. (n.d.). Retrieved October 20, 2022, from https://www.cherrybiotech.com/scientific-note/drosophila-life-cycle-and-fly-anatomy 
+
+\bibitem{Nassif_2003}
+Nassif C, Noveen A, Hartenstein V. Early development of the Drosophila brain: III. The pattern of neuropile founder tracts during the larval period. J Comp Neurol. 2003;455(4):417-434. doi:10.1002/cne.10482
+
+\bibitem{kalderon_lab}
+Why drosophila? (n.d.). Retrieved October 20, 2022, from https://kalderonlab.biology.columbia.edu/content/why-drosophila
+
+\bibitem{genome}
+Background on comparative genomic analysis. (n.d.). Retrieved October 20, 2022, from https://www.genome.gov/10005835/background-on-comparative-genomic-analysis
+
+\bibitem{Scheffer_2020}
+Scheffer LK, Xu CS, Januszewski M, et al. A connectome and analysis of the adult Drosophila central brain. Elife. 2020;9:e57443. Published 2020 Sep 7. doi:10.7554/eLife.57443
+
+\bibitem{wired}
+Grossman, L. (2010, April 09). High-speed video shows how flies change direction so quickly. Retrieved October 20, 2022, from https://www.wired.com/2010/04/high-speed-video-flies/
+
+\bibitem{walter}
+Fly genetics and the methods we are using (n.d.). Retrieved October 20, 2022, from https://www.walter-lab.com/methods
 
 \end{thebibliography}

@@ -40,6 +40,16 @@
 	top=20mm,
 }
 
+% captioned images or figures in LaTeX.
+\usepackage{float}
+
+% for referencing
+\usepackage[%  
+colorlinks=true,
+pdfborder={0 0 0},
+linkcolor=red
+]{hyperref}
+
 % citations
 \usepackage{cite}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,14 +70,71 @@
 	\tableofcontents
 	\newpage
 	\section{Introduction}
-	In the field of medical imaging, image registration is an important application. In image registration, two images are spatially aligned in a common coordinate space so that the corresponding features and/or complementary information can be compared and examined. This is achieved by seeking an optimal mapping of the spatial transformation from one image to the other. Whether in research laboratories where organisms are studied by biologists to understand biological processes or in clinical applications, image registration is one of the most important steps in planning and monitoring changes over time. Therefore, it is important to make the image registration process robust and real time. 
+	In the field of medical imaging, image registration is an important application. In image registration, two images are spatially aligned in a common coordinate space so that the corresponding features and/or complementary information can be compared and examined. This is achieved by seeking an optimal mapping of the spatial transformation from one image to the other. Figure \ref{fig:Registraion} shows one such registration example. \newline
 	
-	The classical method like \emph{elastix} Image Registration Toolkit is a parametric method and uses an iterative approach to find the optimal solution. The parameters are in a high dimensional space and the iterative approach makes the whole process time consuming. Since it is a parametric method, the registration accuracy depends on the optimal combination and parameterization of these parameters. This makes the method highly data dependent, i.e., parameters optimized for one data set may or may not work for another data set. It would be desirable to develop a closed-form solution that works for all data. However, the high dimensionality of the parameter space makes it difficult to find a closed-form solution \cite{Fu_2020}.
+	The subject\footnote{In image registration terminology, subject image is referred to as moving image.} image is registered against the template\footnote{In image registration terminology, image against which the registration is done is called fixed image.} image and the result of which is the registered\footnote{In image registration terminology, registered image is called moved image.} image - which is the same subject image now seen in the template image's coordinate system. The final column is an overlay of the registered image and the template image which helps us visually inspect the quality of registration. The green colored structures correspond to the structures in the template image, while the magenta colored structures represent the structures in the object image. If there is a perfect overlap between the registered image and the template image, the structures will be displayed in gray-scale (or in the original intensity). This provides us a perfect tool to visually inspect the deviations in registration.
+		
+	% https://tex.stackexchange.com/a/8633/277097
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{resources/introduction_fig_1.jpg}
+		\caption{Registration example.}
+		\label{fig:Registraion}
+	\end{figure}
+
+
+			
+	Whether in research laboratories where organisms are studied by biologists or in clinical applications, image registration is one of the most important steps in planning and monitoring changes over time. Therefore, it is important to make the image registration process robust and real time. \newline
 	
-	In this work, image registration is made more robust and real-time by using deep learning techniques to accurately predict the deformation field not only for one dataset but also for other datasets in real-time. Our method is able to perform image registration in 3s on average, while the current state-of-the-art method performs registration in 7m. Moreover, this approach has the advantage that auxiliary information in the form of landmarks, segmentations, or the like can be inserted to assist the network in the learning process.	
+	The registration can be done in two styles - non-learning style and learning style.	One such non-learning style of doing is using \emph{elastix} Image Registration Toolkit which is a parametric method and uses an iterative approach to find the optimal solution. The success or the failure of such parametric methods depend on the choice of the parameters and the optimal combination of these parameters\footnote{There are several such parameters available at our disposal.}. Also, the parameters are in a high dimensional space and the iterative approach makes the whole process time consuming. This makes the method highly data dependent, i.e., parameters optimized for one data set may or may not work for another data set. It would be desirable to develop a closed-form solution that works for all data. However, the high dimensionality of the parameter space makes it difficult to find a closed-form solution \cite{Fu_2020}. \newline
+	
+	In this work, image registration is made more robust and real-time by using deep learning techniques to accurately predict the deformation field not only for one dataset but also for other datasets in real-time. Moreover, our approach has the advantage that auxiliary information in the form of landmarks, segmentations, or the like can be inserted to assist the network in its learning process.	\newpage
 
 	\subsection{Motivation}
+	The thesis is an extension of the work done in the \emph{larvalign} paper \cite{Mu_2018}. \emph{larvalign} is a standard 3D volume template constructed using \emph{PB Method} (van Hecke et al. 2008 \cite{Hecke_2008}, van van Pelt 2013 \cite{Pelt_2013}) and is also a registration method to register any given 3D volume to another 3D volume or to the \emph{larvalign}. \newline
+	
+	Though the \emph{larvalign} showed promising results, it however, on few images, failed to perform successful registration especially at the lower tip of the Ventral Nerve Cord (VNC) which can be seen in the figure \ref{fig:Registraion_Failure}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{resources/motivation_fig_1.jpg}
+		\caption{Registration failure example of \emph{larvalign} at lower tip of Ventral Nerve Cord.}
+		\label{fig:Registraion_Failure}
+	\end{figure}
+	
+	 Like figure \ref{fig:Registraion}, figure \ref{fig:Registraion_Failure} is also an example of \emph{larvalign} registration, but this example depicts one such registration instance where \emph{larvalign} fails. The magenta structure at the lower tip of the ventral nerve cord in the overlay of the fixed and registered images is a registration error. \newline
+	
+	\emph{larvalign} is by definition a non-learning way of performing registration, i.e. it performs registration between new image pairs from the scratch and repeats the same errors each time it performs registration. We are attempting to solve these problems by moving from a non-learning type of registration to a learning type, in the hope that the model will learn to solve these registration problems through experience. Since deep learning techniques allow the model to learn a function that can quickly compute the deformation field between pairs of images, we also hope that the time required to perform registration should be much less time consuming than existing non-learning methods.
+	
+	\subsection{Model organism - Drosophila larva}
+	
+	In this work, as in \emph{larvalign} \cite{Mu_2018}, the 3D scans of the central nervous system of Drosophila melanogaster at its larval stage are used. Drosophila melanogaster, commonly known as the fruit fly, has been used in scientific research and neuroscience for about a century, according to the University of Michigan Museum of Zoology. One of the reasons Drosophila is such an ideal research subject is that it has a short life span and can reproduce very quickly. It matures into an adult in 7 days, and a female can produce 100 eggs a day; the female fruit fly lays about 750-1,500 eggs in her lifetime. This allows researchers to study many generations in a short period of time. \newline
+	
+	Drosophila develops holometabolically, meaning it has three distinct stages of its life cycle after embryonic development: Larva, pupa and finally the adult. The larval stage itself has 3 sub-stages, referred to as 3 instars, lasting a total of about 4-5 days. During the larval stage, most cell types are already differentiated and functional \cite{cherry_biotech}. The central nervous system consists of only 10000 neurons \cite{Nassif_2003} compared to more than 250000 in adult flies and more than 86 billion neurons in humans, which is a simpler model. It is found that despite the simplicity in larval brain, it shares many structural features of the adult \cite{Mu_2018}. \newline
+	
+	Because of the rich history of Drosophila research, there are many systems that allow for easy research, such as many systems for manipulating gene expression and visualizing changes \cite{kalderon_lab}. In addition, an estimated 60\% of Drosophila genes have homologs in humans, making it a perfectly suitable tool not only to understand the molecular basis of human diseases, but also to study the function of these molecules in healthy organisms \cite{genome}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\columnwidth]{resources/model_organism_fig_1.png}
+		\caption{Life cycle of Drosophila melanogaster. \cite{walter}}
+		\label{fig:Life_cycle_of_fruit_fly}
+	\end{figure}
+	
+	Detailed study of the brain of any animal can reveal the general principles of function of all brains \cite{Scheffer_2020}. The study of adult flies has also led to important discoveries in basic biological processes such as aging, circadian clocks, and behavioral studies \cite{cherry_biotech}. Fruit flies support a range of complex behaviors - active flight maneuvers, learning, responses to sensory stimuli such as odors and light. A fruit fly can complete a 120-degree turn in just 18 wing beats, and each wing beat takes about 4 milliseconds \cite{wired}. Considering that each blink of a human's eye takes between 0.1 and 0.4 seconds, the fruit fly would complete a full 180-degree turn with one blink.  
+
 	\subsection{Organization}
+	This section provides a brief description of the rest of the chapters in the report.
+	
+	\textbf{Chapter 2} A discussion on the \emph{larvalign} paper and the related works in deep learning based deformable image registrations is provided. Finally, the base method used in the thesis work is presented. 
+	
+	\textbf{Chapter 3} The details of the dataset used and implementation is mentioned. A novel landmark-based auxiliary information is proposed and implemented.
+	
+	\textbf{Chapter 4} This entails the results and the metrics used for evaluation, both qualitative and quantitative, are mentioned and discussed.
+	
+	\textbf{Chapter 5} This includes the analysis and interpretation of the findings.
+	
+	\textbf{Chapter 6} This chapter provides the conclusion and the future work.
 	
 	\section{Related Works}
 	
